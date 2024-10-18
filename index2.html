@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style2.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="weather-container">
+        <h2>
+            weather app
+        </h2>
+        <input type="text" id="city" placeholder="enter city">
+        <button onclick="getWeather()">search</button>
+        <img id="weather-icon" alt="weather icon">
+        <div id="temp-div"></div>
+        <div id="weather-info"></div>
+        <div id="hourly-forecast"></div>
+    </div>
+    <script>function getWeather() {
+            // const apiKey='8371aa9ae04a288573b8cb6526f57194';
+            const city = document.getElementById('city').value;
+            console.log(city);
+
+            const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=8371aa9ae04a288573b8cb6526f57194`;
+
+            async function getWeather() {
+                try {
+                    const res = await fetch(currentWeatherUrl);
+                    const data = await res.json();
+                    console.log(data);
+                    const tempf=data.main.temp;
+                    const speed=data.wind.speed;
+                    const temp=(tempf-273);
+                    const tempDivInfo = document.getElementById('temp-div');
+                    tempDivInfo.innerHTML=temp+" celcious";
+                } catch (error) {
+                    console.error('Error fetching weather data:', error);
+                }
+            }
+            getWeather();
+            if (!city) {
+                alert('please enter a city');
+                console.log("hi");
+                return;
+
+            }
+        }
+    </script>
+
+</body>
+
+</html>
