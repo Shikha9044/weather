@@ -1,0 +1,32 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: "poppins",sans-serif;
+
+}
+:root{
+    --text-color:#e3e3e3;
+    --subheading-color:#828282;
+    --placeholder-color:#a6a6a6;
+    --primary-color:#242424;
+    --secondary-color:#383838;
+    --secondary-hover-color:#444;
+}
+body{
+    background:var(--primary-color);
+}
+.header, .typing-area{
+    color:var(--text-color);
+
+}
+.header{
+    margin-top:7vh;
+    padding:lrem;
+}
+.header .tittle{
+    font: size 2.7rem;
+    background-clip:text;
+    background: linear-gradient(to right #4285f4,
+    #d96570);
+}
